@@ -3,19 +3,19 @@
 2- Take a string and verify if is palindrome.
 */
 
-function sanitizedStringInput() {
+function sanitizedStringInput(question) {
   //Force a non-empty string input
    do {
-     usersInputRaw = prompt('Even or odd?').toLowerCase().trim();
+     usersInputRaw = prompt(question).toLowerCase().trim();
    } while (usersInputRaw == '' || !isNaN(usersInputRaw));
 
    return usersInputRaw;
 }
 
-function sanitizedNumericalInput() {
+function sanitizedNumericalInput(question) {
   //Force a non-empty numberical input in range between 1 and 5
    do {
-     usersInputRaw = parseInt(prompt('Choose a number beteween 1 and 5').trim());
+     usersInputRaw = parseInt(prompt(question).trim());
    } while (usersInputRaw == '' || isNaN(usersInputRaw) || usersInputRaw <=1 || usersInputRaw >= 5 );
 
    return usersInputRaw;
@@ -42,8 +42,19 @@ function winnerChecker(finalResult,userChoice){
   return victory;
 }
 
+//Take a string and reverse it
+function reverseString(stringToReverse){
+  var stringReversed = '';
+  for (var i = stringToReverse.length -1; i >= 0; i--){
+    stringReversed += stringToReverse[i];
+  }
+
+  return stringReversed;
+}
+
+//Even or odd game in action
 var checked = true;
-var userChoice = sanitizedStringInput();
+var userChoice = sanitizedStringInput('Even or odd, boss?');
 
 //Force the user to input either 'odd' or 'even'
 while (checked == true) {
@@ -54,11 +65,11 @@ while (checked == true) {
     checked = false;
   }
   else {
-    userChoice = sanitizedStringInput();
+    userChoice = sanitizedStringInput('It is either EVEN or ODD!');
   }
 }
 
-var userNumber = sanitizedNumericalInput();
+var userNumber = sanitizedNumericalInput('Roll a number between 1 and 5, champ!');
 var randomNumber = randomGenie(1,5);
 var finalResult = userNumber + randomNumber;
 var whoWon = winnerChecker(finalResult,userChoice);
@@ -71,7 +82,19 @@ else {
   console.log('Are you ready to buy a pint?');
 }
 
-console.log('User is ', userChoice)
+console.log('User is ', userChoice);
 console.log('User rolled a ', userNumber);
 console.log('AI rolled a ', randomNumber);
 console.log(finalResult);
+
+
+// Palindrome checker in action!
+var askName = sanitizedStringInput('What\'s your name boss?');
+var revString = reverseString(askName);
+
+if (revString == askName){
+  console.log('Wow! Your name is palindrome!');
+}
+else {
+  console.log('As I thought, your name is not palindrome');
+}
