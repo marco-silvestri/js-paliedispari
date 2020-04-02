@@ -74,6 +74,11 @@ var randomNumber = randomGenie(1,5);
 var finalResult = userNumber + randomNumber;
 var whoWon = winnerChecker(finalResult,userChoice);
 
+console.log('User is ', userChoice);
+console.log('User rolled a ', userNumber);
+console.log('AI rolled a ', randomNumber);
+console.log('Total rolled ', finalResult);
+
 // Check who won and output accordingly. True means victory to the user
 if (whoWon == true) {
   console.log('Congrats, you won!');
@@ -81,12 +86,6 @@ if (whoWon == true) {
 else {
   console.log('Are you ready to buy a pint?');
 }
-
-console.log('User is ', userChoice);
-console.log('User rolled a ', userNumber);
-console.log('AI rolled a ', randomNumber);
-console.log(finalResult);
-
 
 // Palindrome checker in action!
 var askName = sanitizedStringInput('What\'s your name boss?');
