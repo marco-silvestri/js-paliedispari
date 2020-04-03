@@ -53,20 +53,12 @@ function reverseString(stringToReverse){
 }
 
 //Even or odd game in action
-var checked = true;
+//var checked = true;
 var userChoice = sanitizedStringInput('Even or odd, boss?');
 
 //Force the user to input either 'odd' or 'even'
-while (checked == true) {
-  if (userChoice == 'even') {
-    checked = false;
-  }
-  else if (userChoice == 'odd') {
-    checked = false;
-  }
-  else {
-    userChoice = sanitizedStringInput('It is either EVEN or ODD!');
-  }
+while (userChoice != 'odd' && userChoice != 'even' ) {
+  userChoice = sanitizedStringInput('It is either EVEN or ODD!');
 }
 
 var userNumber = sanitizedNumericalInput('Roll a number between 1 and 5, champ!');
