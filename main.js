@@ -16,7 +16,7 @@ function sanitizedNumericalInput(question) {
   //Force a non-empty numberical input in range between 1 and 5
    do {
      usersInputRaw = parseInt(prompt(question).trim());
-   } while (usersInputRaw == '' || isNaN(usersInputRaw) || usersInputRaw <=1 || usersInputRaw >= 5 );
+   } while (usersInputRaw == null || isNaN(usersInputRaw) || usersInputRaw <= 1 || usersInputRaw >= 5 );
 
    return usersInputRaw;
 }
